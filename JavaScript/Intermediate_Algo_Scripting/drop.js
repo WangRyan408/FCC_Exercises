@@ -13,9 +13,47 @@
 
 */
 
+// My shitty solution
+/*
+Current Ideas:
+    ~~Recursively call function until reaches desired state~~
 
+*/
 function dropElements(arr, func) {
+
+    const arrCpy = [...arr];
+    let newArr = [];
+    let test = [];
+    let len = arr.length;
+    let count = 0;
+
+    newArr = arr.map(x => {
+        return func(x);
+    });
+
+
+    for (let i = 0; i < len; i++) {
+        if (newArr[count] == false) {
+            arrCpy.shift();
+            i = 0;
+            count++;
+            len--;
+        } else if (newArr[count] == true) {
+            break;
+        }
+    }
+
+    //test in console
+    return console.log(newArr);
+    //actual return value
     return arr;
+
   }
   
-  dropElements([1, 2, 3], function(n) {return n < 3; });
+  // Tests
+  //dropElements([1, 2, 3], function(n) {return n < 3; });
+  //dropElements([0, 1, 0, 1], function(n) {return n === 1;});
+  //dropElements([1, 2, 3], function(n) {return n > 0;});
+  dropElements([1, 2, 3, 4], function(n) {return n > 5;});
+  //dropElements([1, 2, 3, 7, 4], function(n) {return n > 3;});
+  //dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;});
