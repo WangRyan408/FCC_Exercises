@@ -30,7 +30,7 @@ function smallestCommons(arr) {
     filteredArr = numRange.filter(x => x > 1);
     
 
-    //const baseCase = [...filteredArr];
+   
 
     /*
         Suggestions - Use map to figure out which elements are divisible
