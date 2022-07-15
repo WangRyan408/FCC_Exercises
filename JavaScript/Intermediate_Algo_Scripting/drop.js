@@ -32,7 +32,7 @@ function dropElements(arr, func) {
     });
 
 
-    for (let i = 0; i < len; i++) {
+    for (let i = 0; i <= len; i++) {
         if (newArr[count] == false) {
             arrCpy.shift();
             i = 0;
@@ -44,16 +44,16 @@ function dropElements(arr, func) {
     }
 
     //test in console
-    return console.log(newArr);
+    return console.log(arrCpy);
     //actual return value
-    return arr;
+    return arrCpy;
 
   }
   
   // Tests
-  //dropElements([1, 2, 3], function(n) {return n < 3; });
-  //dropElements([0, 1, 0, 1], function(n) {return n === 1;});
-  //dropElements([1, 2, 3], function(n) {return n > 0;});
+  dropElements([1, 2, 3, 4], function(n) {return n >= 3;});
+  dropElements([0, 1, 0, 1], function(n) {return n === 1;});
+  dropElements([1, 2, 3], function(n) {return n > 0;});
   dropElements([1, 2, 3, 4], function(n) {return n > 5;});
-  //dropElements([1, 2, 3, 7, 4], function(n) {return n > 3;});
-  //dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;});
+  dropElements([1, 2, 3, 7, 4], function(n) {return n > 3;});
+  dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;});
