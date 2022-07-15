@@ -33,17 +33,17 @@ function smallestCommons(arr) {
     //const baseCase = [...filteredArr];
     do {
         for (let i = 0; i < filteredArr.length; i++) {
-            if (filteredArr[i] / 2 == Math.floor(filteredArr[i]) / 2) {
+            if (filteredArr[i] % 2 == 0) {
                 testArr.push(filteredArr[i] / 2);
                 divisor.push(2);
             }
 
-            if (filteredArr[i] / 3 == Math.floor(filteredArr[i]) / 3) {
+            if (filteredArr[i] % 3 == 0) {
                 testArr.push(filteredArr[i] / 3);
                 divisor.push(3);
             }
-        } while ()
-    }
+        } 
+    } while (filteredArr.every(x => x % 2 !== 0) || filteredArr.every(x => x % 3 !== 0));
     
 
     return console.log();
