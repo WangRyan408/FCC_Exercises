@@ -5,7 +5,7 @@
     Smallest Common Multiple
 */
 
-//My Shitty Solution 
+//My Shitty Solution - Completed
 
 function smallestCommons(arr) {
     
@@ -33,6 +33,8 @@ function smallestCommons(arr) {
         Suggestions - Use map to figure out which elements are divisible
                     - Divide those and add either 2 or 3 to divisor.
     */
+
+    //Holy fuck I just brute forced the fuck outta this one - I'm so shit
     do {
         if (filteredArr.some(x => x % 2 == 0)) {
             filteredArr = filteredArr.map(x => {
@@ -53,6 +55,26 @@ function smallestCommons(arr) {
                 }
             })
             divisor.push(3);
+        }
+        if (filteredArr.some(x => x % 5 == 0)) {
+            filteredArr = filteredArr.map(x => {
+                if (x % 5 == 0) {
+                    return x / 5;
+                } else {
+                    return x;
+                }
+            })
+            divisor.push(5);
+        }
+        if (filteredArr.some(x => x % 7 == 0)) {
+            filteredArr = filteredArr.map(x => {
+                if (x % 7 == 0) {
+                    return x / 7;
+                } else {
+                    return x;
+                }
+            })
+            divisor.push(7);
         }
     } while (filteredArr.some(x => x % 2 == 0) || filteredArr.some(x => x % 3 == 0));
     
