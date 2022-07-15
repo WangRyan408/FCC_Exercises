@@ -28,28 +28,7 @@ function smallestCommons(arr) {
     }
 
     filteredArr = numRange.filter(x => x > 1);
-<<<<<<< HEAD
-
-    //const baseCase = [...filteredArr];
-    do {
-        for (let i = 0; i < filteredArr.length; i++) {
-            if (filteredArr[i] % 2 == 0) {
-                testArr.push(filteredArr[i] / 2);
-                divisor.push(2);
-            }
-
-            if (filteredArr[i] % 3 == 0) {
-                testArr.push(filteredArr[i] / 3);
-                divisor.push(3);
-            }
-        } 
-    } while (filteredArr.every(x => x % 2 !== 0) || filteredArr.every(x => x % 3 !== 0));
-=======
->>>>>>> 847336f5bfb990c6192a0cebaa9d5a9f37e4a7c4
     
-
-   
-
     /*
         Suggestions - Use map to figure out which elements are divisible
                     - Divide those and add either 2 or 3 to divisor.
@@ -86,7 +65,7 @@ function smallestCommons(arr) {
     }
 
 
-    return console.log(filteredArr);
+    return console.log(sum);
     //smallestCommons([10,2]);
     //smallestCommons([23, 18]);
   
