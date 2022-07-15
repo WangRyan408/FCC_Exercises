@@ -5,7 +5,7 @@
     Sum All Primes
 */
 
-//My Shitty Solution
+//My Shitty Solution - Complete
 function sumPrimes(num) {
   let max = [];
   let prime = [];
