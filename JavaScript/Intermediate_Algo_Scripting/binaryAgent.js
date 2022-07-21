@@ -26,7 +26,7 @@ function binaryAgent(str) {
     textArr = binaryArr.map(x => parseInt(x, 2))
           .map(y => String.fromCharCode(y));
 
-    text = textArr.join(" ");
+    text = textArr.join("");
     
     return text;
   }
