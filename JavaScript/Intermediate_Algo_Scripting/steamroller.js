@@ -11,16 +11,18 @@
 function steamrollArray(arr) {
     let newArr = [];
 
-    
 
     for (let i = 0; i < arr.length; i++) {
         if (Array.isArray(arr[i])) {
-            
+            let subArr = steamrollArray(arr[i]);
+            newArr = newArr.concat(subArr);
+        } else {
+            newArr.push(arr[i]);
         }
     }
 
 
-    return console.log(arr[1]);
+    return console.log(newArr);
 
   }
   
