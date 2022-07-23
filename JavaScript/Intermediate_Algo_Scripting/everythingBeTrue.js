@@ -30,7 +30,7 @@ function truthCheck(collection, pre) {
         } else {
             return false;
         }
-    })
+    });
 
     const truthy = collection.every(x => {
         if (Boolean(x[pre])) {
