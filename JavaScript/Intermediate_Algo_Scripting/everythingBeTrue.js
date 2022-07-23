@@ -14,14 +14,15 @@
     Remember, you can access object properties through 
     either dot notation or [] notation.
 
-
-
 */
 
-//My shitty solution
+//My shitty solution - Completed
+/**
+ *  falsy - returns true if at least one value is false
+ *  true - returns true if all values are true 
+ * 
+ */
 function truthCheck(collection, pre) {
-
-   
 
     const falsy = collection.some(x => {
         if (!Boolean(x[pre])) {
@@ -40,9 +41,11 @@ function truthCheck(collection, pre) {
     });
 
         if (falsy) {
-        return console.log(false);
+        //return console.log(false);
+        return false;
     } else if (truthy) {
-        return console.log(true);
+        //return console.log(true);
+        return true;
     }
 
 

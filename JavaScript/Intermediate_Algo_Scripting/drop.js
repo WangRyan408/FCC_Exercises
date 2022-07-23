@@ -45,7 +45,7 @@ function dropElements(arr, func) {
     }
 
     //test in console
-    return console.log(arrCpy);
+    //return console.log(arrCpy);
     //actual return value
     return arrCpy;
 

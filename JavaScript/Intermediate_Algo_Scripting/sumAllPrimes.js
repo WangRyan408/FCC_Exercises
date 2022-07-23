@@ -34,8 +34,8 @@ function sumPrimes(num) {
   prime = max.filter(data => isPrime(data));
   sum = prime.reduce((a,b) => (a + b));
 
-  return console.log(sum);
-
+  //return console.log(sum);
+  return sum;
 
 }
 

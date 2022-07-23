@@ -28,6 +28,7 @@ function binaryAgent(str) {
 
     text = textArr.join("");
     
+    //return console.log(text);
     return text;
   }
   
