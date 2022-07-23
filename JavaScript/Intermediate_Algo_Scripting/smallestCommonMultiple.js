@@ -106,8 +106,8 @@ function smallestCommons(arr) {
     }
 
 
-    return console.log(sum);
-    
+    //return console.log(sum);
+    return sum;
   
 
 
