@@ -18,9 +18,39 @@
 
 */
 
-
+//My shitty solution
 function truthCheck(collection, pre) {
-    return pre;
+
+   
+
+    const falsy = collection.some(x => {
+        if (!Boolean(x[pre])) {
+            return true;
+        } else {
+            return false;
+        }
+    })
+
+    const truthy = collection.every(x => {
+        if (Boolean(x[pre])) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+
+        if (falsy) {
+        return console.log(false);
+    } else if (truthy) {
+        return console.log(true);
+    }
+
+
+    
   }
   
-  truthCheck([{name: "Quincy", role: "Founder", isBot: false}, {name: "Naomi", role: "", isBot: false}, {name: "Camperbot", role: "Bot", isBot: true}], "isBot");
+  //truthCheck([{name: "Quincy", role: "Founder", isBot: false}, {name: "Naomi", role: "", isBot: true}, {name: "Camperbot", role: "Bot", isBot: true}], "isBot");
+  //truthCheck([{name: "Quincy", role: "Founder", isBot: true}, {name: "Naomi", role: "", isBot: true}, {name: "Camperbot", role: "Bot", isBot: true}], "isBot");
+  //truthCheck([{name: "Quincy", role: "Founder", isBot: false}, {name: "Naomi", role: "", isBot: false}, {name: "Camperbot", role: "Bot", isBot: true}], "name");
+  truthCheck([{name: "Pikachu", number: 25, caught: 3}, {name: "Togepi", number: 175, caught: 1}], "number");
+  //truthCheck([{name: "Pikachu", number: 25, caught: 3}, {name: "Togepi", number: 175, caught: 1}, {name: "MissingNo", number: NaN, caught: 0}], "number");
