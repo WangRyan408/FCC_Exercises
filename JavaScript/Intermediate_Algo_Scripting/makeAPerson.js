@@ -6,13 +6,10 @@
  */
 
 
-const Person = function(firstAndLast) {
+var Person = function(firstAndLast) {
     // Only change code below this line
     // Complete the method below and implement the others similarly
-    let arr = firstAndLast.split(" ");
-    let firstName = arr[0];
-    let lastName = arr[1];
-    let fullName = firstName + " " + lastName;
+    let fullName = firstAndLast;
     
     
     this.setFirstName = function(first) {

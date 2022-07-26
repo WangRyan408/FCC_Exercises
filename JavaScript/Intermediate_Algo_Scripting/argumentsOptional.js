@@ -16,7 +16,7 @@
 
 */
 
-//My shitty solution
+//My shitty solution - Completed
 function addTogether() {
     let args = [].slice.call(arguments);
     
