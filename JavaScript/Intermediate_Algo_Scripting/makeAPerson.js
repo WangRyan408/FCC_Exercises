@@ -5,35 +5,36 @@
     Make A Person
  */
 
-
+//My shitty solution - Completed
 var Person = function(firstAndLast) {
     // Only change code below this line
     // Complete the method below and implement the others similarly
     let fullName = firstAndLast;
+    let fullArr = firstAndLast.split(" ");
     
     
     this.setFirstName = function(first) {
-        this.firstName = first;
+        fullArr[0] = first;
     }
     
     this.setLastName = function(last) {
-        this.lastName = last;
+        fullArr[1] = last;
     }
 
     this.setFullName = function(firstAndLast) {
-        this.fullName = firstAndLast;
+        fullArr = firstAndLast.split(" ");
     }
     
     this.getFullName = function() {
-      return fullName;
+      return fullArr.join(" ");
     };
 
     this.getFirstName = function() {
-        return firstName;
+        return fullArr[0];
     }
 
     this.getLastName = function() {
-        return lastName;
+        return fullArr[1];
     }
 
     
@@ -42,4 +43,4 @@ var Person = function(firstAndLast) {
   
   const bob = new Person('Bob Ross');
   
-  console.log(Object.keys(bob).length);
+  console.log(bob.getFullName());
