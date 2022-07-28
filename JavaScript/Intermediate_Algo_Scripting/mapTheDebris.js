@@ -25,9 +25,17 @@
  */
 
 function orbitalPeriod(arr) {
+
+    let data = {
+        name: 'Placeholder',
+        orbitalPeriod: 0
+    };
+
     const GM = 398600.4418;
     const earthRadius = 6367.4447;
-    return arr;
-  }
-  
-  orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
+
+    
+    return console.log([data]);
+}
+
+orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
