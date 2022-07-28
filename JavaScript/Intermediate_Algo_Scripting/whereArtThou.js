@@ -24,7 +24,18 @@ function whatIsInAName(collection, source) {
     const values = Object.values(source);
     // Only change code below this line
 
+    for (let i = 0; i < collection.length; i++) {
+        for (let j = 0; j < keys.length; j++) {
+            if (collection[i].hasOwnProperty(keys[j]) && Object.values(collection[i]).some(x => x == values[j])) {
+                arr.push(collection[i]);
+            }
+        }
+  
+    // Only change code above this line
 
+  }
+
+/*
     for (let i = 0; i < collection.length; i++) {
         if (Object.values(collection[i]).some(x => x == Object.values(source))) {
             arr.push(collection[i]);
@@ -33,12 +44,13 @@ function whatIsInAName(collection, source) {
     // Only change code above this line
 
   }
+  */
   //return console.log(Object.keys(source));
   //return console.log(Object.values(collection[2]));
-  return console.log(collection[0])
+  //return console.log(collection[1]);
   //return console.log(Object.values(collection[1]).some(x => x == Object.values(source)));
 
-  //return console.log(arr);
+  return console.log(arr);
   //return arr;
 }
 
