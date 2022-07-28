@@ -7,7 +7,7 @@
     According to Kepler's Third Law, the orbital period T of two point masses 
     orbiting each other in a circular or elliptic orbit is:
     
-    T=2πa3μ−−−√
+    T=2π√(a^3/μ)
 
     a: is the orbit's semi-major axis
     μ=GM: is the standard gravitational parameter
@@ -24,18 +24,24 @@
     and the GM value of earth is 398600.4418 km3s-2.
  */
 
+//My Shitty Solution - Completed
 function orbitalPeriod(arr) {
 
-    let data = {
-        name: 'Placeholder',
-        orbitalPeriod: 0
-    };
 
     const GM = 398600.4418;
     const earthRadius = 6367.4447;
 
+    //Goes through each object in the array and calculates orbital period.
+    //Average Altitude property is deleted
+    arr.forEach(x => {
+        x.orbitalPeriod = Math.round(2 * Math.PI * Math.sqrt(Math.pow((earthRadius + x.avgAlt), 3) / GM));
+
+        delete x.avgAlt;
+    })
     
-    return console.log([data]);
+    //return console.log(arr);
+    return arr;
 }
 
 orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
+orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}]);
