@@ -20,11 +20,27 @@ that was passed on as the second argument.
 
 function whatIsInAName(collection, source) {
     const arr = [];
+    const keys = Object.keys(source);
+    const values = Object.values(source);
     // Only change code below this line
-  
+
+
+    for (let i = 0; i < collection.length; i++) {
+        if (Object.values(collection[i]).some(x => x == Object.values(source))) {
+            arr.push(collection[i]);
+        }
   
     // Only change code above this line
-    return arr;
+
   }
-  
-  whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+  //return console.log(Object.keys(source));
+  //return console.log(Object.values(collection[2]));
+  return console.log(collection[0])
+  //return console.log(Object.values(collection[1]).some(x => x == Object.values(source)));
+
+  //return console.log(arr);
+  //return arr;
+}
+
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 });
+//whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
