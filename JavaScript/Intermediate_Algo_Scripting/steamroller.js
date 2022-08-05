@@ -9,31 +9,29 @@
 */
 
 /*
-function steamrollArray(arr) {
 
-    let newArr = [];
-    for (let i = 0; i < arr.length; i++) {
-        if (Array.isArray(arr[i])) {
-            newArr.push(steamrollArray(arr[i]));
-        } else {
-            newArr.push(arr[i]);
-        }
-        
-    }
-
-    return console.log(newArr);
-
-
-  }
-  */
   function steamrollArray(arr) {
     const flat = [].concat(...arr);
     return console.log(flat.some(Array.isArray) ? steamrollArray(flat) : flat);
     //return flat.some(Array.isArray) ? steamrollArray(flat) : flat;
  
   }
+*/
+  function steamrollArray(arr) {
+    
+    const flatten = [].concat(...arr);
+        if (flatten.some(Array.isArray)) {
+             return steamrollArray(flatten);
+        } else {
+            return flatten;
+        }
+    };
+
+    //return console.log(flatten);
+
+  
   //steamrollArray([1, [2], [3, [[4]]]]);
-  steamrollArray([[["a"]], [["b"]]]);
+  console.log(steamrollArray([[["a"]], [["b"]]]));
   
 
   
