@@ -1,7 +1,7 @@
 /*
     Ryan Wang
     FCC - JavaScript Algorithm Scripting
-    Intermediate Algorithm Scripting
+    JavaScript Algorithms and Data Structures Projects
     Palindrome Checker
 
 
