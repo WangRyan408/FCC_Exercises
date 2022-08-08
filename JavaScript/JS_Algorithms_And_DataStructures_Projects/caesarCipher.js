@@ -19,8 +19,58 @@ All letters will be uppercase. Do not transform any non-alphabetic character
 
 */
 
+// My shitty solution - Completed
+// Could be more concise by calling map function
 function rot13(str) {
-    return str;
+
+    let arr = [];
+    let newStr = "";
+    //Key value pair for the cipher
+    const rot = {
+        'A' : "N",
+        'B' : "O",
+        'C' : "P",
+        'D' : "Q",
+        'E' : "R",
+        'F' : "S",
+        'G' : "T",
+        'H' : "U",
+        'I' : "V",
+        'J' : "W",
+        'K' : "X",
+        'L' : "Y",
+        'M' : "Z",
+        'N' : "A",
+        'O' : "B",
+        'P' : "C",
+        'Q' : "D",
+        'R' : "E",
+        'S' : "F",
+        'T' : "G",
+        'U' : "H",
+        'V' : "I",
+        'W' : "J",
+        'X' : "K",
+        'Y' : "L",
+        'Z' : "M",
+    }
+
+    const regex = /[A-Z]/;
+
+    arr = str.split("");
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].match(regex)) {
+            arr.splice(i, 1, rot[arr[i]]);
+        }
+    }
+
+    newStr = arr.join("");
+
+    //return console.log(regex.test(arr[0]));
+    //return console.log(arr)
+    return console.log(newStr);
+
   }
   
   rot13("SERR PBQR PNZC");
