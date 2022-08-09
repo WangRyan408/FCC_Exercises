@@ -27,7 +27,15 @@ Return true if the string is a valid US phone number; otherwise return false.
 */
 
 function telephoneCheck(str) {
+
+    let arr = [];
+    
+    const regex = /[^a-zA-Z]/g;
+
+
     return true;
+
+
   }
   
   telephoneCheck("555-555-5555");
