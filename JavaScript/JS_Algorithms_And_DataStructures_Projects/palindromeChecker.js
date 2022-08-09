@@ -18,6 +18,7 @@ such as 2A3*3a2, 2A3 3a2, and 2_A3*3#A2.
 
 */
 
+//My shitty solution - completed
 function palindrome(str) {
 
     // none of non word character (alpha numeric), once or more
