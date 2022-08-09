@@ -30,7 +30,7 @@ function telephoneCheck(str) {
 
     let arr = [];
     
-    const regex = /[^a-zA-Z]/g;
+    const regex = /[^a-zA-Z!"#$%&'*+,./]/g;
 
 
     return true;
