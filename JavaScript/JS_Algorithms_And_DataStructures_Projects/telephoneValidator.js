@@ -46,12 +46,11 @@ function telephoneCheck(str) {
     //This part is kinda fucked.
         if ((str.match(/\d/g)||[]).length == 11) {
             
-            if (str[0] != 1 || str[0] != '(') {
-                
-                return str[0];
+            if (str[0] == 1 || str[0] == '(') {
+                return true;
             }
             else {
-                return true;
+                return false;
             }
         }
         //Checks to see if area code parentheses are set correctly
