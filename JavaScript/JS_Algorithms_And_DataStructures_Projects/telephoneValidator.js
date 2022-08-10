@@ -29,13 +29,56 @@ Return true if the string is a valid US phone number; otherwise return false.
 function telephoneCheck(str) {
 
     let arr = [];
+    let newStr = "";
+
+    const regex = /[a-zA-Z!"#$%&'*+,./]/g;
+
+    const numRegex = /\D+/g;
+
+    //Filters strings that dont have valid phone numbers
+    //regex - All alpha and all non word chars that arent () and -
+    //The match functions check if string has 10 or 11 digits
+    if ((str.search(regex) == -1 && (str.match(/\d/g)||[]).length == 11) || (str.match(/\d/g)||[]).length == 10) {
+        
+        
+    //If first char in 11 digit string is not a 1 or ( return false
     
-    const regex = /[^a-zA-Z!"#$%&'*+,./]/g;
+    //This part is kinda fucked.
+        if ((str.match(/\d/g)||[]).length == 11) {
+            
+            if (str[0] != 1 || str[0] != '(') {
+                
+                return str[0];
+            }
+            else {
+                return true;
+            }
+        }
+        //Checks to see if area code parentheses are set correctly
+        //Must have both sides of parentheses and must be 4 indexes apart
+        
+        if (str.includes(')') && str.indexOf('(') == str.indexOf(')') - 4) {
+            return true;
+        } 
+        else {
+            return true;
+        }
 
 
-    return true;
+
+    } else if (str.search(regex) !== -1) {
+
+        return false;
+
+    }
+
+    
 
     
   }
   
-  telephoneCheck("555-555-5555");
+  console.log(telephoneCheck("1 555-555-5555"));
+  //console.log(telephoneCheck("555-555-5555"));
+  //console.log(telephoneCheck("123**&!!asdf#"));
+  //console.log(telephoneCheck("(555)555-5555"));
+  //console.log(telephoneCheck("1 555)555-5555"));
