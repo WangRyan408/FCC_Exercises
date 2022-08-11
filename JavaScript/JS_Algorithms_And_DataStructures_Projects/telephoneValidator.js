@@ -25,6 +25,8 @@ If the country code is provided, you must confirm that the country code is 1.
 Return true if the string is a valid US phone number; otherwise return false.
 
 */
+
+
 /*
 function telephoneCheck(str) {
 
@@ -88,7 +90,7 @@ function telephoneCheck(str) {
 */
   function telephoneCheck(str) {
 
-    const regex = /^(1\s)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/;
+    const regex = /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/;
 
     return str.search(regex) !== -1 ? true : false;
 
@@ -98,4 +100,4 @@ function telephoneCheck(str) {
   //console.log(telephoneCheck("555-555-5555"));
   //console.log(telephoneCheck("123**&!!asdf#"));
   //console.log(telephoneCheck("(555)555-5555"));
-  console.log(telephoneCheck("1 555)555-5555"));
+  console.log(telephoneCheck("1(555)555-5555"));
