@@ -25,7 +25,7 @@ If the country code is provided, you must confirm that the country code is 1.
 Return true if the string is a valid US phone number; otherwise return false.
 
 */
-
+/*
 function telephoneCheck(str) {
 
     let arr = [];
@@ -46,17 +46,26 @@ function telephoneCheck(str) {
     //This part is kinda fucked.
         if ((str.match(/\d/g)||[]).length == 11) {
             
-            if (str[0] == 1 || str[0] == '(') {
-                return true;
-            }
-            else {
+            if (str[0] != 1) {
+
                 return false;
+
+            } 
+            
+            else if (str.includes('(') && !str.includes(')') && (str.indexOf('(') !== str.indexOf(')') - 4)) {
+                return false;
+            } 
+            else if (!str.includes('(') && str.includes(')') && (str.indexOf('(') !== str.indexOf(')') - 4)) {
+                return false;
+            } 
+            else {
+                return true;
             }
         }
         //Checks to see if area code parentheses are set correctly
         //Must have both sides of parentheses and must be 4 indexes apart
         
-        if (str.includes(')') && str.indexOf('(') == str.indexOf(')') - 4) {
+        if (str.includes('(') && str.includes(')') && (str.indexOf('(') == str.indexOf(')') - 4)) {
             return true;
         } 
         else {
@@ -65,7 +74,7 @@ function telephoneCheck(str) {
 
 
 
-    } else if (str.search(regex) !== -1) {
+    } else if ((str.search(regex) !== -1 && (str.match(/\d/g)||[]).length !== 11) || (str.match(/\d/g)||[]).length !== 10) {
 
         return false;
 
@@ -76,8 +85,17 @@ function telephoneCheck(str) {
     
   }
   
+*/
+  function telephoneCheck(str) {
+
+    const regex = /^(1\s)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/;
+
+    return str.search(regex) !== -1 ? true : false;
+
+    //return true;
+  }
   console.log(telephoneCheck("1 555-555-5555"));
   //console.log(telephoneCheck("555-555-5555"));
   //console.log(telephoneCheck("123**&!!asdf#"));
   //console.log(telephoneCheck("(555)555-5555"));
-  //console.log(telephoneCheck("1 555)555-5555"));
+  console.log(telephoneCheck("1 555)555-5555"));
