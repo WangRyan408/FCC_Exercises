@@ -90,8 +90,13 @@ function telephoneCheck(str) {
 */
   function telephoneCheck(str) {
 
+    /*Starts with 1 or white space, optional. Followed up by either 3 digits 
+    surrounded by parentheses, or just 3 digits. Followed by an optional - or space
+    followed up by 3 digits, another optional space or _, and then 4 digits
+    */
     const regex = /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/;
 
+    //if str matches the regex, return true, else false
     return str.search(regex) !== -1 ? true : false;
 
     //return true;
