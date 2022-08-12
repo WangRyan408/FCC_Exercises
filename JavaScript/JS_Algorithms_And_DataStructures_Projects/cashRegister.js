@@ -51,8 +51,10 @@ function checkCashRegister(price, cash, cid) {
     let changeOwed;
     let totalCash;
     let totalCashFloat;
-    const changeArr = [];
+    let billKey = [];
     let cidFloat = [];
+    let arr = [];
+    let changeArr = [];
     changeOwed = (cash - price) * FLOAT;
     totalCashFloat = 0;
 
@@ -63,11 +65,18 @@ function checkCashRegister(price, cash, cid) {
         change : []
     };
 
-    cidFloat = cid.map(function(row) {
-        return row.map (function (money) {
-            return Math.round(money * FLOAT);
-        })
-    });
+    let bills = {
+        'PENNY' : 0.01,
+        'NICKEL' : 0.05,
+        'DIME' : 0.1,
+        'QUARTER' : 0.25,
+        'ONE' : 1,
+        'FIVE' : 5,
+        'TEN' : 10,
+        'TWENTY' : 20,
+        'HUNDRED' : 100
+    }
+
     
     
 
@@ -76,8 +85,11 @@ function checkCashRegister(price, cash, cid) {
         //looping through cid and adding money
         //multiplying by 100 because evil floats
         totalCashFloat += cid[i][1] * FLOAT;
+        cidFloat.push(Math.round(cid[i][1] * FLOAT));
     }
 
+    cidFloat = cidFloat.reverse();
+    
     //Dividing to get actual monetary value
     totalCash = totalCashFloat / 100;
 
@@ -87,8 +99,16 @@ function checkCashRegister(price, cash, cid) {
 
     //Filtering algo to see what does what
     if (totalCash > changeOwed) {
+        //Name of coins/bills
+        billKey = Object.keys(bills);
+        
+        for (let j = cid.length; j >= 0; j--) {
+            arr.unshift([billKey[j], ])
+        }
+
+        
         monies.status = "OPEN";
-        monies.change.push(['one', 0.1])
+        
     } else if (changeOwed == totalCashFloat) {
         monies.status = "CLOSED";
         monies.change.push(...cid);
@@ -101,5 +121,5 @@ function checkCashRegister(price, cash, cid) {
   
   //checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
   //checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]);
-  //checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]);
+  checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]);
   checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]])
