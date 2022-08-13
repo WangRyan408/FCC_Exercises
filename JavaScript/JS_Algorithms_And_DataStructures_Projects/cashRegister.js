@@ -96,7 +96,6 @@ function checkCashRegister(price, cash, cid) {
 
 
 
-    // Super fucking complex BS
     // Basically this shit calculates the amount needed to pay change
     // Does so by checking each coin/bill from largest to smallest
     // And then checking to see how many of each it can use
