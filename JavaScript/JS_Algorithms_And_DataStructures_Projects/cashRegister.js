@@ -124,8 +124,6 @@ function checkCashRegister(price, cash, cid) {
     if (totalCashFloat > changeOwed && possibleChange >= changeOwed) {
         
         //Name of coins/bills
-        //billKey = Object.keys(bills);
-
         monies.status = "OPEN";
         monies.change.push(...changeArr)
     } else if (changeOwed == totalCashFloat) {
